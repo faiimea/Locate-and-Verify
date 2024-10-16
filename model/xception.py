@@ -285,6 +285,7 @@ class Xception(nn.Module):
 
 def xception(num_classes=1000, pretrained='imagenet', inc=3):
     model = Xception(num_classes=num_classes, inc=inc)
+    pretrained=False
     if pretrained:
         settings = pretrained_settings['xception'][pretrained]
         assert num_classes == settings['num_classes'], \
@@ -320,7 +321,7 @@ class TransferModel(nn.Module):
 
         if modelchoice == 'xception':
 
-            def return_pytorch04_xception(pretrained=False):
+            def return_pytorch04_xception(pretrained=True):
                 # Raises warning "src not broadcastable to dst" but thats fine
                 model = xception()
                 if pretrained:
@@ -468,4 +469,3 @@ if __name__ == '__main__':
     out = model.model.fea_part2(out)
     out = model.model.fea_part3(out)
     print(out.size())
-

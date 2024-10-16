@@ -36,7 +36,7 @@ train:
   save_path: ./checkpoints/
 
 test:
-  ckt_path: ./checkpoints/LVNet/checkpoint-13.pth.tar
+  ckt_path: ./checkpoints/checkpoint-29.pth.tar
   manual_seed: 1234
 
 model:
